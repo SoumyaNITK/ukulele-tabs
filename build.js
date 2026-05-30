@@ -3,7 +3,7 @@ const path = require("path");
 const { marked } = require("marked");
 
 const songsDir = "./songs";
-const distDir = "./dist";
+const distDir = "./";
 
 // create dist folder
 if (!fs.existsSync(distDir)) {
