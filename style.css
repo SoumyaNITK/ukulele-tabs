@@ -3,23 +3,22 @@
 
 /* 🎨 COLOR SYSTEM */
 :root {
-  /* BACKGROUND */
-  --bg-main: #0b0f1a;
-  --bg-gradient: #1a1f3a;
+  /* BACKGROUND (slightly green-tinted space) */
+  --bg-main: #071a12;
+  --bg-gradient: #0f2e24;
 
   /* CARDS */
-  --card-main: #12172a;
-  --card-hover: #1a2040;
+  --card-main: #0e1f18;
+  --card-hover: #143328;
 
-  /* NEON ACCENTS */
-  --accent: #00f5ff;          /* cyan neon */
-  --accent-secondary: #ff2bd6; /* pink neon */
-  --accent-soft: rgba(0,245,255,0.25);
+  /* NEON GREEN SYSTEM */
+  --accent: #00ff9c;          /* neon green */
+  --accent-secondary: #00ffa6; /* softer green blend */
+  --accent-soft: rgba(0,255,156,0.25);
 
-  --text-main: #e0e6ff;
-  --text-muted: #7c86a3;
+  --text-main: #d7fff1;
+  --text-muted: #6fae96;
 }
-
 /* BODY */
 body {
   margin: 0;
