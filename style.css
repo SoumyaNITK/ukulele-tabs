@@ -3,17 +3,14 @@
 
 /* 🎨 COLOR SYSTEM */
 :root {
-  /* BACKGROUND (slightly green-tinted space) */
-  --bg-main: #071a12;
-  --bg-gradient: #0f2e24;
+  --bg-main: #061a14;
+  --bg-gradient: #0d2e25;
 
-  /* CARDS */
-  --card-main: #0e1f18;
-  --card-hover: #143328;
+  --card-main: #0c221a;
+  --card-hover: #13352a;
 
-  /* NEON GREEN SYSTEM */
-  --accent: #00ff9c;          /* neon green */
-  --accent-secondary: #00ffa6; /* softer green blend */
+  --accent: #00ff9c;
+  --accent-secondary: #66ffd9;
   --accent-soft: rgba(0,255,156,0.25);
 
   --text-main: #d7fff1;
