@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
   "build": "node build.js",
-  "deploy": "node build.js && git add . && git commit -m \"update site\" || echo \"No changes\" && git push"
+  "deploy": "node build.js && git add -A && git commit -m \"update site\" || echo \"No changes\" && git push"
 },
   "keywords": [],
   "author": "",
