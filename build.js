@@ -39,7 +39,7 @@ function renderTabs(line) {
     let fret = token.slice(1);
 
     let block = "-" + fret;   // compact note
-    let empty = "--";         // other strings
+    let empty = "---";         // other strings
 
     if (string === "A") {
       A += block; E += empty; C += empty; G += empty;
