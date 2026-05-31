@@ -18,7 +18,6 @@ fs.copyFileSync("style.css", path.join(rootDir, "style.css"));
 function renderTabs(line) {
   let input = line.replace("[", "").replace("]", "");
 
-  // Split while keeping dots
   let tokens = input.match(/[A-Z]\d+|\.+/g);
 
   let A = "A|";
@@ -28,31 +27,32 @@ function renderTabs(line) {
 
   tokens.forEach(token => {
 
-    // GAP (dots)
+    // DOT GAP
     if (token.includes(".")) {
-      let gap = "----".repeat(token.length);
+      let gap = "-".repeat(token.length);
 
       A += gap; E += gap; C += gap; G += gap;
       return;
     }
 
-    // NOTE
     let string = token[0];
     let fret = token.slice(1);
-    let block = "--" + fret + "--";
+
+    let block = "-" + fret;   // compact note
+    let empty = "--";         // other strings
 
     if (string === "A") {
-      A += block; E += "----"; C += "----"; G += "----";
+      A += block; E += empty; C += empty; G += empty;
     } else if (string === "E") {
-      A += "----"; E += block; C += "----"; G += "----";
+      A += empty; E += block; C += empty; G += empty;
     } else if (string === "C") {
-      A += "----"; E += "----"; C += block; G += "----";
+      A += empty; E += empty; C += block; G += empty;
     } else if (string === "G") {
-      A += "----"; E += "----"; C += "----"; G += block;
+      A += empty; E += empty; C += empty; G += block;
     }
 
-    // DEFAULT SMALL GAP after every note
-    let gap = "----";
+    // default minimal gap
+    let gap = "-";
     A += gap; E += gap; C += gap; G += gap;
 
   });
