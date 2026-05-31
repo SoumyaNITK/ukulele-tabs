@@ -139,7 +139,7 @@ ${htmlContent}
 const indexPage = `
 <html>
 <head>
-  <title>Ukulele Tabs</title>
+  <title>Soumya Ranjan</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
