@@ -3,19 +3,20 @@
 
 /* 🎨 COLOR SYSTEM */
 :root {
-  --bg-main: #1a0d05;
-  --bg-gradient: #2f1406;
+  --bg-main: #050c14;
+  --bg-gradient: #0f1f2e;
 
-  --card-main: #26130a;
-  --card-hover: #3a1c0c;
+  --card-main: #0b1a26;
+  --card-hover: #132736;
 
-  --accent: #ff8c00;
-  --accent-secondary: #ffb347;
-  --accent-soft: rgba(255,140,0,0.25);
+  --accent: #38bdf8;
+  --accent-secondary: #7dd3fc;
+  --accent-soft: rgba(56,189,248,0.25);
 
-  --text-main: #fff1e6;
-  --text-muted: #d9a57c;
+  --text-main: #e0f2fe;
+  --text-muted: #7dd3fc;
 }
+
 /* BODY */
 body {
   margin: 0;

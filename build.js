@@ -107,7 +107,7 @@ files.forEach(file => {
 <body>
 
 <div class="navbar">
-  <h1><a href="../index.html">Ukulele Tabs</a></h1>
+  <h1><a href="../index.html">Soumya Ranjan</a></h1>
 </div>
 
 <div class="container">
