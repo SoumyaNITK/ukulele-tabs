@@ -2,8 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const { marked } = require("marked");
 
-const songsDir = "./songs";
-const distDir = "./";
+const songsDir = "./songs-md";
+const distDir = "./songs";
 
 // create dist folder
 if (!fs.existsSync(distDir)) {
@@ -98,7 +98,7 @@ let htmlContent = rawHTML.replace(
 
 <!-- NAVBAR -->
 <div class="navbar">
-  <h1><a href="index.html">Ukulele Tabs</a></h1>
+  <h1><a href="../index.html">Ukulele Tabs</a></h1>
 </div>
 
 <div class="container">
@@ -118,7 +118,7 @@ ${htmlContent}
     fs.writeFileSync(path.join(distDir, fileName), page);
 
     songLinks += `
-<a href="${fileName}" class="song-card" data-title="${title.toLowerCase()}">
+<a href="songs/${fileName}" class="song-card" data-title="${title.toLowerCase()}">
   <div>${title}</div>
 </a>`;
   }
