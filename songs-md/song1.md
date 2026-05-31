@@ -1,6 +1,6 @@
-#Tum Se Hi Lyrics
+# Tum Se Hi Lyrics
 Aa Aa Aa Aa Aa Aa(x4)
-[A3 A2 A3.A2 A3 A2..A3 A2 A3.A2 A3 A2]
+[A3A2A3.A2A3A2..A3 A2 A3.A2 A3 A2]
 [A3 A2 A3.A2 A3 A2..A3 A2 A3.A5 A3 A2]
 Aa Aa Aa Aa Aa Aa(x4)
 [A3 A2 A3.A2 A3 A2..A3 A2 A3.A2 A3 A2]
