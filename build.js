@@ -16,7 +16,10 @@ fs.copyFileSync("style.css", path.join(rootDir, "style.css"));
 
 // TAB RENDER FUNCTION
 function renderTabs(line) {
-  const tokens = line.replace("[", "").replace("]", "").split(" ");
+  let input = line.replace("[", "").replace("]", "");
+
+  // Split while keeping dots
+  let tokens = input.match(/[A-Z]\d+|\.+/g);
 
   let A = "A|";
   let E = "E|";
@@ -25,12 +28,15 @@ function renderTabs(line) {
 
   tokens.forEach(token => {
 
+    // GAP (dots)
     if (token.includes(".")) {
       let gap = "----".repeat(token.length);
+
       A += gap; E += gap; C += gap; G += gap;
       return;
     }
 
+    // NOTE
     let string = token[0];
     let fret = token.slice(1);
     let block = "--" + fret + "--";
@@ -44,13 +50,17 @@ function renderTabs(line) {
     } else if (string === "G") {
       A += "----"; E += "----"; C += "----"; G += block;
     }
+
+    // DEFAULT SMALL GAP after every note
+    let gap = "----";
+    A += gap; E += gap; C += gap; G += gap;
+
   });
 
   A += "|"; E += "|"; C += "|"; G += "|";
 
   return `<pre>${A}\n${E}\n${C}\n${G}</pre>`;
 }
-
 // read files
 const files = fs.readdirSync(songsDir);
 let songLinks = "";
