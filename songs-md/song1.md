@@ -1,4 +1,4 @@
-# Tum Se Hi Lyrics
+# Tum Se Hi
 Aa Aa Aa Aa Aa Aa(x4)
 [A3 A2 A3.A2 A3 A2..A3 A2 A3.A2 A3 A2]
 [A3 A2 A3.A2 A3 A2..A3 A2 A3.A5 A3 A2]
@@ -8,7 +8,7 @@ Aa Aa Aa Aa Aa Aa(x4)
 Naa hai yeh pana
 [E0 G0 C2 E0 G0 G2]
 Naa Khona hi hai
-[G2 G5 G0.G2 E0]
+[G2 A3 G0.G2 E0]
 Tera na hona jaane..
 [C0 C2 E0 G0 C2 A3 A2 A0]
 Kyun hona hi hai
@@ -31,7 +31,7 @@ Tum se hi tum se hi
 Naa hai yeh pana
 [E0 G0 C2 E0 G0 G2]
 Naa Khona hi hai
-[G2 G5 G0.G2 E0]
+[G2 A3 G0.G2 E0]
 Tera na hona jaane..
 [C0 C2 E0 G0 C2 A3 A2 A0]
 Kyun hona hi hai
@@ -97,7 +97,7 @@ Tumse hi tumse hi
 Naa hai yeh pana
 [E0 G0 C2 E0 G0 G2]
 Naa Khona hi hai
-[G2 G5 G0.G2 E0]
+[G2 A3 G0.G2 E0]
 Tera na hona jaane..
 [C0 C2 E0 G0 C2 A3 A2 A0]
 Kyun hona hi hai
