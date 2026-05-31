@@ -2,16 +2,17 @@ const fs = require("fs");
 const path = require("path");
 const { marked } = require("marked");
 
-const songsDir = "./songs-md";
-const distDir = "./songs";
+const songsDir = "./songs-md";     // markdown files
+const songsOutDir = "./songs";     // generated song pages
+const rootDir = "./";              // homepage + css
 
-// create dist folder
-if (!fs.existsSync(distDir)) {
-  fs.mkdirSync(distDir);
+// create songs folder if not exists
+if (!fs.existsSync(songsOutDir)) {
+  fs.mkdirSync(songsOutDir);
 }
 
-// copy CSS
-fs.copyFileSync("style.css", path.join(distDir, "style.css"));
+// copy CSS to root (NOT songs folder)
+fs.copyFileSync("style.css", path.join(rootDir, "style.css"));
 
 // TAB RENDER FUNCTION
 function renderTabs(line) {
@@ -64,26 +65,25 @@ files.forEach(file => {
       return renderTabs(match);
     });
 
-    // REMOVE first line (title) before rendering markdown
-const lines = processedContent.split("\n");
-lines.shift(); // remove first line (# Title)
+    // remove title line
+    const lines = processedContent.split("\n");
+    lines.shift();
+    const cleanedContent = lines.join("\n");
 
-const cleanedContent = lines.join("\n");
+    let rawHTML = marked(cleanedContent);
 
-let rawHTML = marked(cleanedContent);
-
-// Wrap lyrics + tab into sections
-let htmlContent = rawHTML.replace(
-  /<p>(.*?)<\/p>\s*<pre>(.*?)<\/pre>/gs,
-  (match, lyrics, tab) => {
-    return `
-    <div class="section">
-      <div class="lyrics">${lyrics}</div>
-      <div class="tab-block"><pre>${tab}</pre></div>
-    </div>
-    `;
-  }
-);
+    // wrap lyrics + tab
+    let htmlContent = rawHTML.replace(
+      /<p>(.*?)<\/p>\s*<pre>(.*?)<\/pre>/gs,
+      (match, lyrics, tab) => {
+        return `
+        <div class="section">
+          <div class="lyrics">${lyrics}</div>
+          <div class="tab-block"><pre>${tab}</pre></div>
+        </div>
+        `;
+      }
+    );
 
     const title = content.split("\n")[0].replace("# ", "");
     const fileName = file.replace(".md", ".html");
@@ -92,11 +92,10 @@ let htmlContent = rawHTML.replace(
 <html>
 <head>
   <title>${title}</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
   <h1><a href="../index.html">Ukulele Tabs</a></h1>
 </div>
@@ -115,8 +114,10 @@ ${htmlContent}
 </html>
 `;
 
-    fs.writeFileSync(path.join(distDir, fileName), page);
+    // save song inside /songs
+    fs.writeFileSync(path.join(songsOutDir, fileName), page);
 
+    // link from homepage
     songLinks += `
 <a href="songs/${fileName}" class="song-card" data-title="${title.toLowerCase()}">
   <div>${title}</div>
@@ -124,7 +125,7 @@ ${htmlContent}
   }
 });
 
-// homepage
+// homepage (SAVE IN ROOT)
 const indexPage = `
 <html>
 <head>
@@ -133,14 +134,12 @@ const indexPage = `
 </head>
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
   <h1><a href="index.html">Ukulele Tabs</a></h1>
 </div>
 
 <div class="container">
 
-<!-- HERO -->
 <div class="hero">
   <h2>Ukulele Tabs</h2>
   <p>Play songs easily with clean visual tabs</p>
@@ -181,6 +180,7 @@ searchBox.addEventListener("input", function() {
 </html>
 `;
 
-fs.writeFileSync(path.join(distDir, "index.html"), indexPage);
+// save homepage in root
+fs.writeFileSync(path.join(rootDir, "index.html"), indexPage);
 
 console.log("Build complete!");
