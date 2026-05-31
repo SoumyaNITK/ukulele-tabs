@@ -29,7 +29,7 @@ function renderTabs(line) {
 
     // DOT GAP
     if (token.includes(".")) {
-      let gap = "-".repeat(token.length);
+      let gap = "--".repeat(token.length);
 
       A += gap; E += gap; C += gap; G += gap;
       return;
@@ -38,7 +38,7 @@ function renderTabs(line) {
     let string = token[0];
     let fret = token.slice(1);
 
-    let block = "-" + fret;   // compact note
+    let block = "--" + fret;   // compact note
     let empty = "---";         // other strings
 
     if (string === "A") {
