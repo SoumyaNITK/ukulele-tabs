@@ -3,18 +3,18 @@
 
 /* 🎨 COLOR SYSTEM */
 :root {
-  --bg-main: #120f05;
-  --bg-gradient: #2a220c;
+  --bg-main: #061a14;
+  --bg-gradient: #0d2e25;
 
-  --card-main: #1f1a08;
-  --card-hover: #332a0f;
+  --card-main: #0c221a;
+  --card-hover: #13352a;
 
-  --accent: #ffd700;
-  --accent-secondary: #fff3a3;
-  --accent-soft: rgba(255,215,0,0.25);
+  --accent: #00ff9c;
+  --accent-secondary: #66ffd9;
+  --accent-soft: rgba(0,255,156,0.25);
 
-  --text-main: #fffbe6;
-  --text-muted: #d4c47a;
+  --text-main: #d7fff1;
+  --text-muted: #6fae96;
 }
 
 /* BODY */
