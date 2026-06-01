@@ -2,22 +2,18 @@ const fs = require("fs");
 const path = require("path");
 const { marked } = require("marked");
 
-const songsDir = "./songs-md";     // markdown files
-const songsOutDir = "./songs";     // generated song pages
-const rootDir = "./";              // homepage + css
+const songsDir = "./songs-md";
+const songsOutDir = "./songs";
+const rootDir = "./";
 
-// create songs folder if not exists
 if (!fs.existsSync(songsOutDir)) {
   fs.mkdirSync(songsOutDir);
 }
 
-// copy CSS to root (NOT songs folder)
 fs.copyFileSync("style.css", path.join(rootDir, "style.css"));
 
-// TAB RENDER FUNCTION
 function renderTabs(line) {
   let input = line.replace("[", "").replace("]", "");
-
   let tokens = input.match(/[A-Z]\d+|\.+/g);
 
   let A = "A|";
@@ -27,10 +23,8 @@ function renderTabs(line) {
 
   tokens.forEach(token => {
 
-    // DOT GAP
     if (token.includes(".")) {
       let gap = "--".repeat(token.length);
-
       A += gap; E += gap; C += gap; G += gap;
       return;
     }
@@ -38,8 +32,8 @@ function renderTabs(line) {
     let string = token[0];
     let fret = token.slice(1);
 
-    let block = "--" + fret;   // compact note
-    let empty = "---";         // other strings
+    let block = "--" + fret;
+    let empty = "---";
 
     if (string === "A") {
       A += block; E += empty; C += empty; G += empty;
@@ -51,17 +45,15 @@ function renderTabs(line) {
       A += empty; E += empty; C += empty; G += block;
     }
 
-    // default minimal gap
     let gap = "-";
     A += gap; E += gap; C += gap; G += gap;
-
   });
 
   A += "|"; E += "|"; C += "|"; G += "|";
 
   return `<pre>${A}\n${E}\n${C}\n${G}</pre>`;
 }
-// read files
+
 const files = fs.readdirSync(songsDir);
 let songLinks = "";
 
@@ -70,19 +62,16 @@ files.forEach(file => {
 
     const content = fs.readFileSync(path.join(songsDir, file), "utf-8");
 
-    // process tabs
     let processedContent = content.replace(/\[(.*?)\]/g, (match) => {
       return renderTabs(match);
     });
 
-    // remove title line
     const lines = processedContent.split("\n");
     lines.shift();
     const cleanedContent = lines.join("\n");
 
     let rawHTML = marked(cleanedContent);
 
-    // wrap lyrics + tab
     let htmlContent = rawHTML.replace(
       /<p>(.*?)<\/p>\s*<pre>(.*?)<\/pre>/gs,
       (match, lyrics, tab) => {
@@ -101,6 +90,7 @@ files.forEach(file => {
     const page = `
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${title}</title>
   <link rel="stylesheet" href="../style.css">
 </head>
@@ -124,10 +114,8 @@ ${htmlContent}
 </html>
 `;
 
-    // save song inside /songs
     fs.writeFileSync(path.join(songsOutDir, fileName), page);
 
-    // link from homepage
     songLinks += `
 <a href="songs/${fileName}" class="song-card" data-title="${title.toLowerCase()}">
   <div>${title}</div>
@@ -135,10 +123,10 @@ ${htmlContent}
   }
 });
 
-// homepage (SAVE IN ROOT)
 const indexPage = `
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ukulele Tabs</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -190,7 +178,6 @@ searchBox.addEventListener("input", function() {
 </html>
 `;
 
-// save homepage in root
 fs.writeFileSync(path.join(rootDir, "index.html"), indexPage);
 
 console.log("Build complete!");

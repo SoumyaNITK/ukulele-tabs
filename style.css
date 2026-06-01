@@ -238,3 +238,57 @@ button:hover {
 * {
   transition: all 0.2s ease;
 }
+
+/* 📱 MOBILE RESPONSIVE (ADD ONLY, DO NOT MODIFY ABOVE) */
+@media (max-width: 768px) {
+
+  .container {
+    padding: 20px 14px;
+  }
+
+  .navbar {
+    padding: 14px 18px;
+  }
+
+  .navbar h1 {
+    font-size: 18px;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  #searchBox {
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  .song-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .lyrics {
+    font-size: 16px;
+  }
+
+  .section {
+    padding: 14px;
+  }
+
+  pre {
+    font-size: 12px;
+    padding: 12px;
+    overflow-x: auto; /* 🔥 important for tabs */
+  }
+
+  button {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px;
+  }
+}
