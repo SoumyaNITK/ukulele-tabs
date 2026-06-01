@@ -8,6 +8,7 @@ Una mattina mi sono alzato
 E ho trovato l'invasor
 [A7 A5 A3 A2 A7 A3 A2 A0]
 
+Now Repeat the notes...
 O partigiano, portami via
 [.]
 O bella ciao, bella ciao, bella ciao, ciao, ciao
